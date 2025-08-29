@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terabox Links</title>
+  <style>
+    body {font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0; text-align:center;}
+    .container {max-width: 800px; margin: auto; padding: 20px;}
+    h1 {color:#222;}
+    .btn {display:inline-block; margin:10px; padding:12px 20px; font-size:16px; font-weight:bold; text-decoration:none; color:#fff; border-radius:6px;}
+    .watch {background:#28a745;}
+    .download {background:#007bff;}
+    .ads {margin:20px 0; padding:10px; background:#fff; border:1px solid #ddd; min-height:90px;}
+    img {border-radius:10px; max-width:100%;}
+    .welcome {background:#007bff; color:#fff; padding:15px; border-radius:8px; margin-bottom:20px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Welcome Section -->
+    <div class="welcome">
+      <h1>🎉 Welcome to Terabox Links 🎬</h1>
+      <p>Watch & Download your favorite videos easily 🚀</p>
+    </div>
+
+    <!-- 🔹 Adsterra Banner Ad -->
+    <div class="ads">
+      <!-- Replace with Adsterra Banner Code -->
+      <p>🔸 Your Banner Ad Here 🔸</p>
+    </div>
+
+    <!-- 🔹 Dynamic Content Section -->
+    <h2 id="title">Loading...</h2>
+    <img id="thumbnail" src="https://via.placeholder.com/600x320" alt="thumbnail" style="margin:15px 0;">
+    <p id="caption">Please wait...</p>
+
+    <!-- Watch & Download Buttons -->
+    <a id="watchBtn" href="#" target="_blank" class="btn watch">▶ Watch</a>
+    <a id="downloadBtn" href="#" target="_blank" class="btn download">⬇ Download</a>
+
+    <!-- 🔹 Another Ad Section -->
+    <div class="ads">
+      <p>🔸 Another Ad Space 🔸</p>
+    </div>
+  </div>
+
+<script>
+  // Function to read URL parameters
+  function getParam(name) {
+    let url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  // Load terabox link + title + caption dynamically
+  let link = getParam("link");
+  let title = getParam("title") || "Untitled Video";
+  let caption = getParam("caption") || "No caption provided";
+  let thumb = getParam("img") || "https://via.placeholder.com/600x320";
+
+  if(link){
+    document.getElementById("watchBtn").href = link;
+    document.getElementById("downloadBtn").href = link;
+  } else {
+    document.getElementById("watchBtn").style.display="none";
+    document.getElementById("downloadBtn").style.display="none";
+  }
+
+  document.getElementById("title").innerText = title;
+  document.getElementById("caption").innerText = caption;
+  document.getElementById("thumbnail").src = thumb;
+</script>
+</body>
+</html>
