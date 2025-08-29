@@ -1,75 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terabox Links</title>
+  <title>বাংলাদেশ ভাইরাল ভিডিও 🎬</title>
   <style>
-    body {font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0; text-align:center;}
-    .container {max-width: 800px; margin: auto; padding: 20px;}
-    h1 {color:#222;}
-    .btn {display:inline-block; margin:10px; padding:12px 20px; font-size:16px; font-weight:bold; text-decoration:none; color:#fff; border-radius:6px;}
-    .watch {background:#28a745;}
-    .download {background:#007bff;}
-    .ads {margin:20px 0; padding:10px; background:#fff; border:1px solid #ddd; min-height:90px;}
-    img {border-radius:10px; max-width:100%;}
-    .welcome {background:#007bff; color:#fff; padding:15px; border-radius:8px; margin-bottom:20px;}
+    body {font-family: Arial, sans-serif; background:#f9f9f9; text-align:center; margin:0; padding:0;}
+    header {background:#0077ff; color:white; padding:20px; font-size:26px; font-weight:bold;}
+    .btn {display:inline-block; margin:10px; padding:14px 28px; border-radius:10px; text-decoration:none; font-size:20px;}
+    .watch {background:#28a745; color:white;}
+    .download {background:#007bff; color:white;}
+    .ads {margin:20px 0;}
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Welcome Section -->
-    <div class="welcome">
-      <h1>🎉 Welcome to Terabox Links 🎬</h1>
-      <p>Watch & Download your favorite videos easily 🚀</p>
-    </div>
+<header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
 
-    <!-- 🔹 Adsterra Banner Ad -->
-    <div class="ads">
-      <!-- Replace with Adsterra Banner Code -->
-      <p>🔸 Your Banner Ad Here 🔸</p>
-    </div>
+<p style="font-size:20px; margin:20px;">
+আমাদের ওয়েবসাইটে প্রতিদিন নতুন ভাইরাল ভিডিও যুক্ত করা হয়।  
+<br> ভিডিও দেখতে <b>Watch</b> অথবা ডাউনলোড করতে <b>Download</b> বাটনে ক্লিক করুন 👇
+</p>
 
-    <!-- 🔹 Dynamic Content Section -->
-    <h2 id="title">Loading...</h2>
-    <img id="thumbnail" src="https://via.placeholder.com/600x320" alt="thumbnail" style="margin:15px 0;">
-    <p id="caption">Please wait...</p>
+<!-- 🔹 Adsterra Banner (728x90) -->
+<div class="ads">
+  <!-- এখানে Banner কোড বসাও -->
+</div>
 
-    <!-- Watch & Download Buttons -->
-    <a id="watchBtn" href="#" target="_blank" class="btn watch">▶ Watch</a>
-    <a id="downloadBtn" href="#" target="_blank" class="btn download">⬇ Download</a>
+<h2>🎬 আজকের স্পেশাল ভিডিও</h2>
+<img src="https://via.placeholder.com/350x200?text=ভিডিও+Thumbnail" alt="Video" style="width:90%;max-width:350px;border-radius:10px;">
 
-    <!-- 🔹 Another Ad Section -->
-    <div class="ads">
-      <p>🔸 Another Ad Space 🔸</p>
-    </div>
-  </div>
+<div>
+  <a href="https://teraboxapp.com/some-video-link" class="btn watch">▶ Watch</a>
+  <a href="https://teraboxapp.com/some-video-link" class="btn download">⬇ Download</a>
+</div>
 
-<script>
-  // Function to read URL parameters
-  function getParam(name) {
-    let url = new URL(window.location.href);
-    return url.searchParams.get(name);
-  }
+<!-- 🔹 Adsterra Native Ad (300x250) -->
+<div class="ads">
+  <!-- এখানে Native কোড বসাও -->
+</div>
 
-  // Load terabox link + title + caption dynamically
-  let link = getParam("link");
-  let title = getParam("title") || "Untitled Video";
-  let caption = getParam("caption") || "No caption provided";
-  let thumb = getParam("img") || "https://via.placeholder.com/600x320";
+<!-- 🔹 Adsterra Social Bar (High CPM) -->
+<div class="ads">
+  <!-- এখানে Social Bar কোড বসাও -->
+</div>
 
-  if(link){
-    document.getElementById("watchBtn").href = link;
-    document.getElementById("downloadBtn").href = link;
-  } else {
-    document.getElementById("watchBtn").style.display="none";
-    document.getElementById("downloadBtn").style.display="none";
-  }
+<footer style="background:#333;color:#fff;padding:18px;margin-top:20px;font-size:18px;">
+  © 2025 Viral Video BD | সব ভিডিও প্রথমে এখানেই দেখুন 🚀
+</footer>
 
-  document.getElementById("title").innerText = title;
-  document.getElementById("caption").innerText = caption;
-  document.getElementById("thumbnail").src = thumb;
-</script>
+<!-- 🔹 Adsterra Popunder (Auto) -->
+<script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
+
 </body>
 </html>
