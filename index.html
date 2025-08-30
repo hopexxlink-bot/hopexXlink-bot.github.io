@@ -8,95 +8,107 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      text-align: center;
       background: #f9f9f9;
+      text-align: center;
     }
-    header, footer {
-      margin: 10px auto;
+    .container {
       max-width: 100%;
+      margin: 0 auto;
+      padding: 10px;
     }
-    .video-box {
-      margin: 15px auto;
-      max-width: 95%;
+    .video-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 15px 0;
     }
-    iframe {
-      width: 100%;
-      height: 450px;
+    button {
+      padding: 12px 25px;
+      margin: 8px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
     }
-    .ad-box {
-      margin: 15px auto;
+    .watch-btn {background: #28a745; color: #fff;}
+    .download-btn {background: #007bff; color: #fff;}
+
+    /* Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
     }
-    @media(max-width:768px){
-      iframe {
-        height: 250px;
-      }
+    .overlay-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px; right: 12px;
+      font-size: 20px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔥 হেডার Banner 728x90 -->
-  <header>
-    <div class="ad-box">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : 'e6b4c96a155e86ef29b10e59db3df9f6',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/e6b4c96a155e86ef29b10e59db3df9f6/invoke.js"></script>
+  <div class="container">
+    <h2>🔥 আজকের স্পেশাল ভিডিও 🔥</h2>
+    <div class="video-card">
+      <img src="https://via.placeholder.com/300x180?text=Video+Thumbnail" style="width:100%;border-radius:8px;">
+      <div>
+        <button class="watch-btn" onclick="showAd()">▶ Watch</button>
+        <button class="download-btn" onclick="goLink()">⬇ Download</button>
+      </div>
     </div>
-  </header>
-
-  <!-- ভিডিও প্লেয়ার -->
-  <div class="video-box">
-    <iframe id="videoFrame" src="" allowfullscreen></iframe>
   </div>
 
-  <!-- 🔥 মাঝখানে Banner 468x60 -->
-  <div class="ad-box">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '207fe9af5a86e9e68987b4811edc0f41',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
+  <!-- Overlay Ad -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <span class="close-btn" onclick="closeAd()">×</span>
+      <p>Sponsored Ad</p>
+      <!-- এখানে আপনি আপনার ad কোড বসাতে পারবেন -->
+      <div style="margin:10px auto;">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '207fe9af5a86e9e68987b4811edc0f41',
+            'format' : 'iframe',
+            'height' : 60,
+            'width' : 468,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
+      </div>
+      <button class="watch-btn" onclick="goLink()">Continue ▶</button>
+    </div>
   </div>
 
-  <!-- Footer এ Native Ad + Social Bar -->
-  <footer>
-    <div class="ad-box">
-      <!-- Native Ad -->
-      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-    </div>
-
-    <div class="ad-box">
-      <!-- Social Bar -->
-      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-    </div>
-  </footer>
-
-  <!-- Popunder Ad (auto open) -->
-  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-
-  <!-- Parameter link system -->
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const videoLink = urlParams.get('video');
-    if(videoLink){
-      document.getElementById("videoFrame").src = videoLink;
-    } else {
-      document.getElementById("videoFrame").src = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // default
+    const videoLink = urlParams.get('video') || "https://terabox.com"; // default
+
+    function showAd(){
+      document.getElementById("overlay").style.display = "flex";
+    }
+    function closeAd(){
+      document.getElementById("overlay").style.display = "none";
+    }
+    function goLink(){
+      window.location.href = videoLink;
     }
   </script>
 
