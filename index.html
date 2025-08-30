@@ -8,16 +8,17 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #f2f2f2;
       text-align: center;
     }
     .header-ad, .footer-ad {
       width: 100%;
       text-align: center;
-      margin: 10px 0;
+      margin: 10px auto;
+      overflow-x: auto;
     }
     .container {
-      max-width: 500px;
+      max-width: 600px;
       margin: auto;
       padding: 10px;
     }
@@ -29,10 +30,10 @@
     }
     .video-card {
       background: #fff;
-      padding: 15px;
-      margin-bottom: 15px;
+      padding: 12px;
+      margin: 12px 0;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
     .video-card img {
       width: 100%;
@@ -49,11 +50,14 @@
     }
     .watch { background: #28a745; }
     .download { background: #007bff; }
+    @media (max-width: 768px) {
+      .btn { font-size: 14px; padding: 8px 12px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Popunder (background) -->
+  <!-- ✅ Popunder -->
   <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
 
   <!-- ✅ Social bar -->
@@ -77,25 +81,13 @@
     <h3>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h3>
     <p>ভিডিও দেখতে <b>Watch</b> অথবা ডাউনলোড করতে <b>Download</b> এ ক্লিক করুন👇</p>
 
-    <!-- ✅ ভিডিও ১ -->
+    <!-- ✅ ভিডিও (Dynamic parameter link) -->
     <div class="video-card">
       <img src="https://via.placeholder.com/400x220.png?text=আজকের+স্পেশাল+ভিডিও" alt="Special Video">
       <div>
-        <a href="YOUR_VIDEO_LINK" class="btn watch">▶ Watch</a>
-        <a href="YOUR_VIDEO_LINK" class="btn download">⬇ Download</a>
+        <a id="watchBtn" href="#" class="btn watch">▶ Watch</a>
+        <a id="downloadBtn" href="#" class="btn download">⬇ Download</a>
       </div>
-    </div>
-
-    <!-- ✅ ভিডিও ২ -->
-    <div class="video-card">
-      <img src="https://via.placeholder.com/400x220.png?text=ভিডিও+২" alt="Video 2">
-      <p>My stepmom try to teach me...</p>
-    </div>
-
-    <!-- ✅ ভিডিও ৩ -->
-    <div class="video-card">
-      <img src="https://via.placeholder.com/400x220.png?text=ভিডিও+৩" alt="Video 3">
-      <p>My stepmom try to teach me...</p>
     </div>
 
     <!-- ✅ Native Banner Ad -->
@@ -104,6 +96,52 @@
       <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
     </div>
 
+    <!-- ✅ 468x60 Banner -->
+    <div class="video-card">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '207fe9af5a86e9e68987b4811edc0f41',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
+    </div>
+
+  </div>
+
+  <!-- ✅ Footer 728x90 Banner -->
+  <div class="footer-ad">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'e6b4c96a155e86ef29b10e59db3df9f6',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/e6b4c96a155e86ef29b10e59db3df9f6/invoke.js"></script>
+  </div>
+
+  <!-- ✅ Script: parameter থেকে ভিডিও লিংক সেট করা -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoLink = urlParams.get('video');
+
+    if(videoLink){
+      document.getElementById("watchBtn").href = videoLink;
+      document.getElementById("downloadBtn").href = videoLink;
+    } else {
+      document.getElementById("watchBtn").href = "#";
+      document.getElementById("downloadBtn").href = "#";
+    }
+  </script>
+
+</body>
+</html>
     <!-- ✅ 468x60 Banner -->
     <div class="video-card">
       <script type="text/javascript">
