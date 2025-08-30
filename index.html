@@ -3,95 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>বাংলাদেশ ভাইরাল ভিডিও 🎬</title>
+  <title>ভিডিও দেখুন / ডাউনলোড করুন 🎬</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background:#f2f2f2;
-      margin:0; padding:0;
-      text-align:center;
-    }
-    header {
-      background:#ff4500;
-      color:white;
-      padding:20px;
-      font-size:28px;
-      font-weight:bold;
-    }
-    .btn-box {
-      position:fixed;
-      top:0; left:0; right:0;
-      background:#fff;
-      padding:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.2);
-      z-index:99;
-    }
-    .btn {
-      display:inline-block;
-      margin:5px;
-      padding:14px 26px;
-      border-radius:12px;
-      text-decoration:none;
-      font-size:22px;
-      font-weight:bold;
-    }
-    .watch {background:#28a745; color:white;}
-    .download {background:#007bff; color:white;}
-    .ads {margin:18px 0;}
-    footer {
-      background:#333;
-      color:#fff;
-      padding:18px;
-      margin-top:20px;
-      font-size:18px;
-    }
-    h2 {font-size:24px; margin-top:90px;}
-    p {font-size:22px; font-weight:bold; padding:10px;}
+    body {font-family: Arial, sans-serif; text-align: center; background:#f9f9f9; margin:0; padding:0;}
+    header {background:#007bff; color:#fff; padding:15px; font-size:24px; font-weight:bold;}
+    .btn {display:inline-block; margin:15px; padding:14px 30px; font-size:22px; font-weight:bold; border-radius:10px; text-decoration:none; color:#fff;}
+    .watch {background:#28a745;}
+    .download {background:#007bff;}
+    footer {background:#333; color:#fff; padding:15px; margin-top:25px; font-size:18px;}
   </style>
 </head>
 <body>
 
-<header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
+<header>🔥 ভাইরাল ভিডিও দেখুন 🔥</header>
 
-<!-- Watch & Download Button -->
-<div class="btn-box">
-  <a id="videoLink" href="#" class="btn watch">▶ Watch</a>
-  <a id="videoLink2" href="#" class="btn download">⬇ Download</a>
-</div>
-
-<p>
-  👉 প্রতিদিন নতুন ভাইরাল ভিডিও যোগ করা হয়!  
-  <br>ভিডিও দেখতে <b style="color:#28a745;">Watch</b> অথবা  
-  ডাউনলোড করতে <b style="color:#007bff;">Download</b> বাটনে চাপুন 👇
+<p style="font-size:22px; font-weight:bold;">
+👇 নিচে থেকে আপনার ভিডিও দেখুন অথবা ডাউনলোড করুন 👇
 </p>
 
-<h2>🎬 আজকের স্পেশাল ভিডিও</h2>
-<img src="https://via.placeholder.com/350x200?text=ভিডিও+Thumbnail" 
-     alt="Video" style="width:92%;max-width:360px;border-radius:12px;">
+<!-- ✅ Buttons -->
+<a href="#" class="btn watch" onclick="openLink()">▶ Watch</a>
+<a href="#" class="btn download" onclick="openLink()">⬇ Download</a>
 
-<!-- 🔹 Popunder Ad (Adsterra) -->
+<!-- ✅ Popunder / Popup Ad Code -->
 <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
 
-<!-- 🔹 Social Bar Ad -->
-<script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-
-<!-- 🔹 Native Banner Ad -->
-<div class="ads">
-  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-</div>
-
-<footer>
-  © 2025 Viral Video BD | সব ভিডিও প্রথমে এখানেই দেখুন 🚀
-</footer>
-
 <script>
-  // Parameter থেকে লিঙ্ক নেওয়া
+  // ✅ URL থেকে Parameter লিঙ্ক পড়া
   const urlParams = new URLSearchParams(window.location.search);
-  const link = urlParams.get('link') || "https://teraboxapp.com/s/default";
-  document.getElementById("videoLink").href = link;
-  document.getElementById("videoLink2").href = link;
+  const targetLink = urlParams.get("link") || "https://1024terabox.com/s/default";
+
+  function openLink() {
+    let adShown = sessionStorage.getItem("adShown");
+
+    if (!adShown) {
+      // প্রথমবার হলে ad দেখাবে
+      window.open("about:blank", "_blank"); // Popunder script কাজ করবে
+      sessionStorage.setItem("adShown", "yes");
+
+      // ১ সেকেন্ড পরে মেইন লিঙ্কে যাবে
+      setTimeout(() => {
+        window.location.href = targetLink;
+      }, 1000);
+    } else {
+      // দ্বিতীয়বার থেকে সরাসরি লিঙ্ক
+      window.location.href = targetLink;
+    }
+  }
 </script>
 
+<footer>© 2025 Viral Video BD 🚀</footer>
 </body>
 </html>
