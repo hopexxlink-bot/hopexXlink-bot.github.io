@@ -11,6 +11,7 @@
     .watch {background:#28a745;}
     .download {background:#007bff;}
     footer {background:#333; color:#fff; padding:15px; margin-top:25px; font-size:18px;}
+    .ads {margin:15px 0;}
   </style>
 </head>
 <body>
@@ -25,11 +26,24 @@
 <a href="#" class="btn watch" onclick="openLink()">▶ Watch</a>
 <a href="#" class="btn download" onclick="openLink()">⬇ Download</a>
 
-<!-- ✅ Popunder / Popup Ad Code -->
+<!-- ✅ Top Ad (Popunder) -->
+<div class="ads">
 <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
+</div>
+
+<!-- ✅ Native Banner Ad -->
+<div class="ads">
+<script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+<div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+</div>
+
+<!-- ✅ Social Bar -->
+<div class="ads">
+<script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+</div>
 
 <script>
-  // ✅ URL থেকে Parameter লিঙ্ক পড়া
+  // ✅ Parameter link system
   const urlParams = new URLSearchParams(window.location.search);
   const targetLink = urlParams.get("link") || "https://1024terabox.com/s/default";
 
@@ -37,19 +51,27 @@
     let adShown = sessionStorage.getItem("adShown");
 
     if (!adShown) {
-      // প্রথমবার হলে ad দেখাবে
-      window.open("about:blank", "_blank"); // Popunder script কাজ করবে
+      // ✅ প্রথমবার Ad দেখাবে
       sessionStorage.setItem("adShown", "yes");
 
-      // ১ সেকেন্ড পরে মেইন লিঙ্কে যাবে
+      // Ad চলার সময় নতুন ট্যাব ওপেন
+      window.open("about:blank", "_blank");
+
+      // ১ সেকেন্ড পর লিঙ্ক রিডাইরেক্ট
       setTimeout(() => {
         window.location.href = targetLink;
       }, 1000);
     } else {
-      // দ্বিতীয়বার থেকে সরাসরি লিঙ্ক
+      // ✅ দ্বিতীয়বার থেকে সরাসরি লিঙ্ক
       window.location.href = targetLink;
     }
   }
+
+  // ✅ Back দিলে সাইট বন্ধ না হয়
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+    history.go(1);
+  };
 </script>
 
 <footer>© 2025 Viral Video BD 🚀</footer>
