@@ -3,77 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ভিডিও দেখুন / ডাউনলোড করুন 🎬</title>
+  <title>Watch / Download</title>
   <style>
-    body {font-family: Arial, sans-serif; text-align: center; background:#f9f9f9; margin:0; padding:0;}
-    header {background:#007bff; color:#fff; padding:15px; font-size:24px; font-weight:bold;}
-    .btn {display:inline-block; margin:15px; padding:14px 30px; font-size:22px; font-weight:bold; border-radius:10px; text-decoration:none; color:#fff;}
-    .watch {background:#28a745;}
-    .download {background:#007bff;}
-    footer {background:#333; color:#fff; padding:15px; margin-top:25px; font-size:18px;}
-    .ads {margin:15px 0;}
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-top: 100px;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h2>📥 ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
+    <button class="btn" onclick="openLink()">▶ Watch / Download</button>
+  </div>
 
-<header>🔥 ভাইরাল ভিডিও দেখুন 🔥</header>
+  <!-- Popunder Ad (Adstra) -->
+  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
 
-<p style="font-size:22px; font-weight:bold;">
-👇 নিচে থেকে আপনার ভিডিও দেখুন অথবা ডাউনলোড করুন 👇
-</p>
+  <!-- Social Bar -->
+  <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
 
-<!-- ✅ Buttons -->
-<a href="#" class="btn watch" onclick="openLink()">▶ Watch</a>
-<a href="#" class="btn download" onclick="openLink()">⬇ Download</a>
+  <!-- Native Banner -->
+  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
 
-<!-- ✅ Top Ad (Popunder) -->
-<div class="ads">
-<script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-</div>
+  <script>
+    // Get terabox link from parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetLink = urlParams.get("link");
 
-<!-- ✅ Native Banner Ad -->
-<div class="ads">
-<script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-<div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-</div>
+    // Function to open link
+    function openLink() {
+      if (!targetLink) {
+        alert("❌ কোনো লিঙ্ক পাওয়া যায়নি!");
+        return;
+      }
 
-<!-- ✅ Social Bar -->
-<div class="ads">
-<script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-</div>
+      // Check if ad already shown
+      if (!localStorage.getItem("adShown")) {
+        // First time: show ad
+        localStorage.setItem("adShown", "true");
 
-<script>
-  // ✅ Parameter link system
-  const urlParams = new URLSearchParams(window.location.search);
-  const targetLink = urlParams.get("link") || "https://1024terabox.com/s/default";
-
-  function openLink() {
-    let adShown = sessionStorage.getItem("adShown");
-
-    if (!adShown) {
-      // ✅ প্রথমবার Ad দেখাবে
-      sessionStorage.setItem("adShown", "yes");
-
-      // Ad চলার সময় নতুন ট্যাব ওপেন
-      window.open("about:blank", "_blank");
-
-      // ১ সেকেন্ড পর লিঙ্ক রিডাইরেক্ট
-      setTimeout(() => {
+        // ছোট delay দিয়ে তারপর redirect
+        setTimeout(() => {
+          window.location.href = targetLink;
+        }, 1500); // 1.5 sec wait
+      } else {
+        // Next time direct redirect
         window.location.href = targetLink;
-      }, 1000);
-    } else {
-      // ✅ দ্বিতীয়বার থেকে সরাসরি লিঙ্ক
-      window.location.href = targetLink;
+      }
     }
-  }
 
-  // ✅ Back দিলে সাইট বন্ধ না হয়
-  history.pushState(null, null, location.href);
-  window.onpopstate = function () {
-    history.go(1);
-  };
-</script>
-
-<footer>© 2025 Viral Video BD 🚀</footer>
+    // Prevent back button from closing site
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
+  </script>
 </body>
 </html>
