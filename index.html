@@ -3,86 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeraBox Link</title>
+  <title>বাংলাদেশ ভাইরাল ভিডিও 🎬</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; background: #f7f7f7; margin:0; padding:0; }
-    .container { margin: 20px auto; max-width: 500px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
-    h2 { color: #333; font-size: 22px; font-weight: bold; }
-    .btn { display: inline-block; margin: 10px; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; }
-    .watch { background: green; color: white; }
-    .download { background: blue; color: white; }
-    .ad-box { margin: 15px 0; padding: 10px; background: #f1f1f1; border: 1px dashed #aaa; border-radius: 8px;}
-    /* popup ad */
-    #popupAd {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;
+    body {
+      font-family: Arial, sans-serif;
+      background:#f2f2f2;
+      margin:0; padding:0;
+      text-align:center;
     }
-    #popupAd .ad-content {
-      background: white; padding: 20px; border-radius: 10px; position: relative; max-width: 350px;
+    header {
+      background:#ff4500;
+      color:white;
+      padding:20px;
+      font-size:28px;
+      font-weight:bold;
     }
-    #popupAd .close { position: absolute; top: 5px; right: 10px; cursor: pointer; font-weight: bold; font-size:18px; }
+    .btn-box {
+      position:fixed;
+      top:0; left:0; right:0;
+      background:#fff;
+      padding:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.2);
+      z-index:99;
+    }
+    .btn {
+      display:inline-block;
+      margin:5px;
+      padding:14px 26px;
+      border-radius:12px;
+      text-decoration:none;
+      font-size:22px;
+      font-weight:bold;
+    }
+    .watch {background:#28a745; color:white;}
+    .download {background:#007bff; color:white;}
+    .ads {margin:18px 0;}
+    footer {
+      background:#333;
+      color:#fff;
+      padding:18px;
+      margin-top:20px;
+      font-size:18px;
+    }
+    h2 {font-size:24px; margin-top:90px;}
+    p {font-size:22px; font-weight:bold; padding:10px;}
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>🎬 আপনার TeraBox লিংক প্রস্তুত</h2>
+<header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
 
-    <!-- 🔹 Social Bar Ad -->
-    <div class="ad-box">
-      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-    </div>
+<!-- Watch & Download Button -->
+<div class="btn-box">
+  <a id="videoLink" href="#" class="btn watch">▶ Watch</a>
+  <a id="videoLink2" href="#" class="btn download">⬇ Download</a>
+</div>
 
-    <!-- 🔹 Native Banner Ad -->
-    <div class="ad-box">
-      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-    </div>
+<p>
+  👉 প্রতিদিন নতুন ভাইরাল ভিডিও যোগ করা হয়!  
+  <br>ভিডিও দেখতে <b style="color:#28a745;">Watch</b> অথবা  
+  ডাউনলোড করতে <b style="color:#007bff;">Download</b> বাটনে চাপুন 👇
+</p>
 
-    <!-- Watch / Download Buttons -->
-    <a id="watchBtn" href="#" class="btn watch">▶ Watch</a>
-    <a id="downloadBtn" href="#" class="btn download">⬇ Download</a>
+<h2>🎬 আজকের স্পেশাল ভিডিও</h2>
+<img src="https://via.placeholder.com/350x200?text=ভিডিও+Thumbnail" 
+     alt="Video" style="width:92%;max-width:360px;border-radius:12px;">
 
-    <!-- 🔹 Footer Ad -->
-    <div class="ad-box">
-      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-    </div>
-  </div>
+<!-- 🔹 Popunder Ad (Adsterra) -->
+<script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
 
-  <!-- 🔹 Popup Ad -->
-  <div id="popupAd">
-    <div class="ad-content">
-      <span class="close" onclick="closeAd()">✖</span>
-      <h3>Advertisement</h3>
-      <p>👇 এখানে Popup Ad আসবে 👇</p>
-      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-    </div>
-  </div>
+<!-- 🔹 Social Bar Ad -->
+<script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
 
-  <script>
-    // Popup auto show
-    window.onload = function(){
-      setTimeout(function(){
-        document.getElementById("popupAd").style.display = "flex";
-      }, 1000); // ১ সেকেন্ড পরে popup আসবে
-    };
+<!-- 🔹 Native Banner Ad -->
+<div class="ads">
+  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+</div>
 
-    // Close popup
-    function closeAd(){
-      document.getElementById("popupAd").style.display = "none";
-    }
+<footer>
+  © 2025 Viral Video BD | সব ভিডিও প্রথমে এখানেই দেখুন 🚀
+</footer>
 
-    // Button click → link এ যাবে
-    const urlParams = new URLSearchParams(window.location.search);
-    const link = urlParams.get('link');
-
-    document.getElementById("watchBtn").addEventListener("click", function(){
-      if(link){ window.location.href = link; }
-    });
-    document.getElementById("downloadBtn").addEventListener("click", function(){
-      if(link){ window.location.href = link; }
-    });
-  </script>
+<script>
+  // Parameter থেকে লিঙ্ক নেওয়া
+  const urlParams = new URLSearchParams(window.location.search);
+  const link = urlParams.get('link') || "https://teraboxapp.com/s/default";
+  document.getElementById("videoLink").href = link;
+  document.getElementById("videoLink2").href = link;
+</script>
 
 </body>
 </html>
