@@ -6,143 +6,121 @@
   <title>🔥 ভাইরাল ভিডিও BD 🔥</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f4f6f9;
+      background: #f8f9fa;
       text-align: center;
     }
     header {
-      background: linear-gradient(90deg, #007bff, #6610f2);
-      color: #fff; padding: 15px;
-      font-size: 22px; font-weight: bold;
+      background: linear-gradient(90deg, #ff0057, #6a00ff);
+      color: white;
+      padding: 12px;
+      font-size: 20px;
+      font-weight: bold;
     }
-    .container {
-      max-width: 600px; margin: 20px auto;
-      background: #fff; padding: 20px;
+    .ad-top {
+      background: #fff;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .section {
+      margin: 20px 10px;
+      padding: 20px;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .btn {
       display: inline-block;
-      margin: 10px; padding: 12px 25px;
-      border-radius: 8px; font-size: 16px;
-      cursor: pointer; font-weight: bold;
-      color: #fff; text-decoration: none;
-    }
-    .watch {background: linear-gradient(45deg, #28a745, #20c997);}
-    .download {background: linear-gradient(45deg, #007bff, #0056b3);}
-    iframe {
-      width: 100%; height: 300px;
-      border: none; border-radius: 10px;
-    }
-    /* Popup Ad */
-    #adPopup {
-      display: none; position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center; align-items: center;
-      z-index: 9999;
-    }
-    #adContent {
-      background: #fff; padding: 20px;
-      border-radius: 10px; max-width: 400px;
-      text-align: center; position: relative;
-    }
-    #adContent button {
-      position: absolute; top: 5px; right: 10px;
-      background: red; color: #fff; border: none;
-      padding: 5px 10px; border-radius: 5px;
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      transition: 0.2s;
+    }
+    .watch-btn {
+      background: #ff004c;
+      color: white;
+    }
+    .download-btn {
+      background: #007bff;
+      color: white;
+    }
+    .btn:hover { opacity: 0.8; }
+
+    /* Popup Ad */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 90%;
+      max-width: 350px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      font-size: 20px;
+      color: red;
     }
   </style>
 </head>
 <body>
 
-<header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
+  <header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
 
-<!-- ✅ Header Banner Ad -->
-<script type="text/javascript">
-	atOptions = {
-		'key' : 'e6b4c96a155e86ef29b10e59db3df9f6',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/e6b4c96a155e86ef29b10e59db3df9f6/invoke.js"></script>
-
-<div class="container" id="mainBox">
-  <h3>🎬 আজকের স্পেশাল ভিডিও</h3>
-  <img src="https://img.icons8.com/clouds/200/play.png" alt="Video Thumbnail">
-  <div>
-    <a href="#" class="btn watch" onclick="openAd()">▶ Watch</a>
-    <a id="downloadBtn" href="#" target="_blank" class="btn download">⬇ Download</a>
+  <!-- Top Ad -->
+  <div class="ad-top">
+    <p>এখানে আপনার বিজ্ঞাপন যাবে (728x90)</p>
   </div>
-</div>
 
-<div class="container" id="videoBox" style="display:none;">
-  <h3>ভিডিও চলছে...</h3>
-  <iframe id="videoFrame" src=""></iframe>
-</div>
-
-<!-- ✅ Popup Ad -->
-<div id="adPopup">
-  <div id="adContent">
-    <button onclick="closeAd()">X</button>
-    <h3>🔔 Sponsor Ad</h3>
-    <!-- Social bar Ad -->
-    <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-    <p>👉 Close ক্লিক করলে ভিডিও শুরু হবে</p>
+  <div class="section">
+    <h2>🎬 আজকের স্পেশাল ভিডিও 🎬</h2>
+    <p>ভিডিও দেখতে হলে নিচের Watch বাটনে ক্লিক করুন 👇</p>
+    <button class="btn watch-btn" onclick="openAd()">▶ Watch</button>
+    <button class="btn download-btn" onclick="openAd()">⬇ Download</button>
   </div>
-</div>
 
-<!-- ✅ Footer Banner (468x60) -->
-<div style="margin:20px;">
-  <script type="text/javascript">
-	atOptions = {
-		'key' : '207fe9af5a86e9e68987b4811edc0f41',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-  </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
-</div>
-
-<footer>© 2025 Viral Video BD | সব ভিডিও প্রথমে এখানেই দেখুন 🚀</footer>
-
-<!-- ✅ Popunder Ad -->
-<script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-
-<!-- ✅ Native Ad -->
-<script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-<div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+  <!-- Popup Ad -->
+  <div class="popup" id="popupAd">
+    <div class="popup-box">
+      <span class="close-btn" onclick="closeAd()">×</span>
+      <h3>🔔 Sponsored Ad</h3>
+      <p>এখানে আপনার বিজ্ঞাপন যাবে (300x250)</p>
+      <button class="btn watch-btn" onclick="goVideo()">Continue</button>
+    </div>
+  </div>
 
 <script>
-  // URL parameter থেকে ভিডিও লিঙ্ক নেওয়া
-  const urlParams = new URLSearchParams(window.location.search);
-  const videoURL = urlParams.get("video");
+  // এখানে তোমার Terabox লিঙ্ক দাও
+  const videoLink = "https://1024terabox.com/s/13SQtPRhX1h0oHeGgIZ6Xpw";
 
-  // যদি লিঙ্ক থাকে তাহলে Download বাটন সেট করো
-  if(videoURL){
-    document.getElementById("downloadBtn").href = videoURL;
+  function openAd() {
+    document.getElementById("popupAd").style.display = "flex";
   }
 
-  function openAd(){
-    if(!videoURL){
-      alert("❌ কোনো ভিডিও লিঙ্ক পাওয়া যায়নি!");
-      return;
-    }
-    document.getElementById("adPopup").style.display = "flex";
+  function closeAd() {
+    document.getElementById("popupAd").style.display = "none";
   }
 
-  function closeAd(){
-    document.getElementById("adPopup").style.display = "none";
-    document.getElementById("mainBox").style.display = "none";
-    document.getElementById("videoBox").style.display = "block";
-    document.getElementById("videoFrame").src = videoURL;
+  function goVideo() {
+    window.open(videoLink, "_blank");
   }
 </script>
 
