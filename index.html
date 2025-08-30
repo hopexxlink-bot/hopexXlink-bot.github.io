@@ -3,100 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 Viral Video Links 🔥</title>
+  <title>🔥 আজকের ভিডিও লিংক 🔥</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background: #fff;
-    }
-    header {
-      background: #007bff;
-      color: #fff;
-      padding: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      position: relative;
-    }
-    .ad-header {
-      background: #f8f8f8;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
-    .content {
-      padding: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      margin: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-    }
-    .watch { background: #28a745; }
-    .download { background: #007bff; }
-    footer {
-      background: #f8f8f8;
-      padding: 15px;
-      border-top: 1px solid #ddd;
-      font-size: 14px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+    body {font-family: Arial, sans-serif;margin:0;padding:0;text-align:center;background:#fff;}
+    header {background:#007bff;color:#fff;padding:14px;font-size:22px;font-weight:bold;position:relative;}
+    .ad-header {background:#f8f8f8;padding:10px;border-bottom:1px solid #ddd;}
+    .content {padding:25px;}
+    h1 {font-size:26px;color:#222;margin-bottom:15px;}
+    h2 {font-size:22px;color:#444;margin:20px 0;}
+    .btn {display:inline-block;padding:14px 35px;margin:15px;font-size:20px;border-radius:10px;text-decoration:none;color:white;}
+    .watch {background:#28a745;}
+    .download {background:#007bff;}
+    footer {background:#f8f8f8;padding:15px;border-top:1px solid #ddd;font-size:14px;position:fixed;bottom:0;width:100%;}
     /* Popup Ad */
-    #popupAd {
-      display: flex;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .ad-box {
-      background: #fff;
-      width: 90%;
-      max-width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      position: relative;
-      text-align: center;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 15px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold;
-      color: red;
-    }
+    #popupAd {display:flex;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;z-index:1000;}
+    .ad-box {background:#fff;width:90%;max-width:400px;padding:20px;border-radius:10px;position:relative;text-align:center;}
+    .close-btn {position:absolute;top:10px;right:15px;cursor:pointer;font-size:18px;font-weight:bold;color:red;}
   </style>
 </head>
 <body>
 
 <header>
-  Viral Video Links
+  আজকের ভাইরাল ভিডিও লিংক 🎬
   <div class="ad-header">
     <!-- Header Ad -->
     <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
   </div>
 </header>
 
-<!-- Social Bar Ad -->
-<div>
-  <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-</div>
-
 <div class="content">
-  <h2 style="font-size:22px;font-weight:bold;">🎬 আজকের স্পেশাল ভিডিও 🎬</h2>
-  <a id="watchBtn" href="#" class="btn watch">▶ Watch</a>
-  <a id="downloadBtn" href="#" class="btn download">⬇ Download</a>
+  <h1>📢 অভিনন্দন!</h1>
+  <h2>👉 আপনার ভিডিও লিংক এখন রেডি 👈</h2>
+  <p style="font-size:20px;color:#555;">নিচে দেওয়া বাটনে ক্লিক করলে সরাসরি ভিডিওটি দেখতে পারবেন।</p>
+  <p style="font-size:20px;color:#555;">আপনি চাইলে একই লিংক থেকে ডাউনলোডও করতে পারবেন।</p>
+  
+  <!-- Button -->
+  <a id="mainBtn" href="#" class="btn watch">▶ ভিডিও দেখুন</a>
+  <a id="mainBtn2" href="#" class="btn download">⬇ ভিডিও ডাউনলোড করুন</a>
 </div>
 
 <!-- Native Banner Ad -->
@@ -115,19 +58,18 @@
 <div id="popupAd">
   <div class="ad-box">
     <span class="close-btn" onclick="closePopup()">×</span>
-    <h3>👉 Sponsored Ad 👈</h3>
-    <p>এখানে আপনার বিজ্ঞাপন থাকবে</p>
+    <!-- Popup Ad Code -->
+    <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
   </div>
 </div>
 
 <script>
   // Parameter link set
   const urlParams = new URLSearchParams(window.location.search);
-  const watchLink = urlParams.get("watch") || "https://example.com/watch";
-  const downloadLink = urlParams.get("download") || "https://example.com/download";
+  const mainLink = urlParams.get("link") || "https://example.com/video";
 
-  document.getElementById("watchBtn").href = watchLink;
-  document.getElementById("downloadBtn").href = downloadLink;
+  document.getElementById("mainBtn").href = mainLink;
+  document.getElementById("mainBtn2").href = mainLink;
 
   function closePopup(){
     document.getElementById("popupAd").style.display = "none";
