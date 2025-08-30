@@ -3,54 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>বাংলাদেশ ভাইরাল ভিডিও 🎥</title>
+  <title>বাংলাদেশের ভাইরাল ভিডিও</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; text-align: center; }
-    .container { max-width: 500px; margin: auto; padding: 15px; }
-    h1 { color: #000; font-size: 20px; margin: 15px 0; }
-    .btn { display: block; width: 100%; margin: 10px 0; padding: 12px; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; }
-    .watch { background: green; color: #fff; }
-    .download { background: blue; color: #fff; }
-    /* popup */
-    .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-    .popup-content { background: #fff; padding: 20px; border-radius: 10px; width: 90%; max-width: 350px; position: relative; }
-    .close { position: absolute; top: 5px; right: 10px; font-size: 22px; cursor: pointer; color: red; }
+    body {font-family: Arial, sans-serif; text-align: center; background: #fff; margin:0; padding:0;}
+    h1 {background:#007bff; color:white; padding:15px; font-size:22px;}
+    p {font-size:18px; padding:10px;}
+    .btn {display:block; width:80%; max-width:300px; margin:15px auto; padding:15px; font-size:20px; color:white; border-radius:8px; text-decoration:none;}
+    .watch {background:#28a745;}
+    .download {background:#0066ff;}
+    #adBox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;}
+    #adContent {background:#fff; padding:20px; border-radius:10px; text-align:center; max-width:350px;}
+    #closeAd {background:red; color:white; border:none; padding:10px 15px; cursor:pointer; border-radius:5px; margin-top:10px;}
+    #countdown {font-size:18px; font-weight:bold; margin-top:10px;}
+    footer {background:#222; color:white; padding:15px; margin-top:20px; font-size:14px;}
   </style>
 </head>
 <body>
 
-<div class="container">
   <h1>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h1>
   <p>ভিডিও দেখতে নিচের Watch অথবা Download বাটনে ক্লিক করুন 👇</p>
-  
-  <button class="btn watch" onclick="openAd('https://example.com/video')">▶ Watch</button>
-  <button class="btn download" onclick="openAd('https://example.com/video')">⬇ Download</button>
-</div>
 
-<!-- Popup Ad -->
-<div id="adPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeAd()">×</span>
-    <h3>Sponsored Ad</h3>
-    <!-- social bar -->
-    <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-    <!-- native banner -->
-    <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-    <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+  <a href="#" class="btn watch" onclick="showAd()">▶ Watch</a>
+  <a href="#" class="btn download" onclick="showAd()">⬇ Download</a>
+
+  <!-- Fake Ad Popup -->
+  <div id="adBox">
+    <div id="adContent">
+      <h2>Advertisement</h2>
+      <p>এখানে ছোট অ্যাড আসবে</p>
+
+      <!-- Social Bar Ad -->
+      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+
+      <!-- Native Banner Ad -->
+      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script> 
+      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+
+      <button id="closeAd" onclick="startRedirect()">✖ Close</button>
+      <div id="countdown"></div>
+    </div>
   </div>
-</div>
+
+  <footer>
+    © 2025 Viral Video BD | সব ভিডিও এখানেই দেখুন 🚀
+  </footer>
+
+  <!-- Popunder Ad (Background) -->
+  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
 
 <script>
-  let targetLink = "";
+  // link parameter get
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectLink = urlParams.get("link") || "https://google.com"; // default link
 
-  function openAd(link){
-    targetLink = link;
-    document.getElementById("adPopup").style.display = "flex";
+  function showAd() {
+    document.getElementById("adBox").style.display = "flex";
   }
 
-  function closeAd(){
-    document.getElementById("adPopup").style.display = "none";
-    window.location.href = targetLink; // redirect after close
+  function startRedirect() {
+    let sec = 3;
+    document.getElementById("countdown").innerHTML = sec + " সেকেন্ড পরে ভিডিও শুরু হবে...";
+    
+    let timer = setInterval(() => {
+      sec--;
+      if(sec > 0){
+        document.getElementById("countdown").innerHTML = sec + " সেকেন্ড পরে ভিডিও শুরু হবে...";
+      } else {
+        clearInterval(timer);
+        window.location.href = redirectLink;
+      }
+    }, 1000);
   }
 </script>
 
