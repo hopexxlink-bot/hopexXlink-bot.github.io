@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Redirect</title>
+  <title>Watch & Download</title>
   <style>
     body {
       margin: 0;
@@ -42,7 +42,7 @@
       color: #333;
     }
     .buttons {
-      margin-top: 50px;
+      margin-top: 80px;
     }
     .btn {
       display: block;
@@ -84,7 +84,15 @@
       document.getElementById('adOverlay').style.display = 'none';
     }
     function goLink() {
-      window.location.href = "https://www.terabox.com/s/XXXXXXXX"; // এখানে তোমার TERABOX লিংক দাও
+      // URL থেকে video parameter read করা
+      const urlParams = new URLSearchParams(window.location.search);
+      const videoLink = urlParams.get("video");
+
+      if(videoLink) {
+        window.location.href = videoLink;
+      } else {
+        alert("No video link found!");
+      }
     }
   </script>
 
