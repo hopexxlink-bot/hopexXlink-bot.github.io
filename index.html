@@ -3,60 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
+  <title>🔥 আজকের ভিডিও লিংক 🔥</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background: #f4f4f4;
-    }
-    h1 {
-      font-size: 32px;
-      color: #222;
-      font-weight: bold;
-    }
-    p {
-      font-size: 22px;
-      color: #444;
-      font-weight: bold;
-    }
-    .ad-container {
-      margin: 20px auto;
-      max-width: 320px;
-    }
+    body {font-family: Arial, sans-serif;margin:0;padding:0;text-align:center;background:#fff;}
+    header {background:#007bff;color:#fff;padding:14px;font-size:22px;font-weight:bold;position:relative;}
+    .ad-header {background:#f8f8f8;padding:10px;border-bottom:1px solid #ddd;}
+    .content {padding:25px;}
+    h1 {font-size:26px;color:#222;margin-bottom:15px;}
+    h2 {font-size:22px;color:#444;margin:20px 0;}
+    .btn {display:inline-block;padding:14px 35px;margin:15px;font-size:20px;border-radius:10px;text-decoration:none;color:white;}
+    .watch {background:#28a745;}
+    .download {background:#007bff;}
+    footer {background:#f8f8f8;padding:15px;border-top:1px solid #ddd;font-size:14px;position:fixed;bottom:0;width:100%;}
+    /* Popup Ad */
+    #popupAd {display:flex;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;z-index:1000;}
+    .ad-box {background:#fff;width:90%;max-width:400px;padding:20px;border-radius:10px;position:relative;text-align:center;}
+    .close-btn {position:absolute;top:10px;right:15px;cursor:pointer;font-size:18px;font-weight:bold;color:red;}
   </style>
 </head>
 <body>
-  <h1>🚀 দয়া করে অপেক্ষা করুন...</h1>
-  <p>👉 ৩ সেকেন্ড পরে আপনার লিংকে নিয়ে যাওয়া হবে।</p>
-  <p>নীচের বিজ্ঞাপনগুলো দেখে সাপোর্ট করুন 💖</p>
 
-  <!-- Social Bar Ad -->
-  <div class="ad-container">
+<header>
+  আজকের ভাইরাল ভিডিও লিংক 🎬
+  <div class="ad-header">
+    <!-- Header Ad -->
     <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
   </div>
+</header>
 
-  <!-- Native Banner Ad -->
-  <div class="ad-container">
-    <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-    <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+<div class="content">
+  <h1>📢 অভিনন্দন!</h1>
+  <h2>👉 আপনার ভিডিও লিংক এখন রেডি 👈</h2>
+  <p style="font-size:20px;color:#555;">নিচে দেওয়া বাটনে ক্লিক করলে সরাসরি ভিডিওটি দেখতে পারবেন।</p>
+  <p style="font-size:20px;color:#555;">আপনি চাইলে একই লিংক থেকে ডাউনলোডও করতে পারবেন।</p>
+  
+  <!-- Button -->
+  <a id="mainBtn" href="#" class="btn watch">▶ ভিডিও দেখুন</a>
+  <a id="mainBtn2" href="#" class="btn download">⬇ ভিডিও ডাউনলোড করুন</a>
+</div>
+
+<!-- Native Banner Ad -->
+<div style="margin:20px 0;">
+  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+</div>
+
+<footer>
+  <!-- Footer Ad -->
+  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+</footer>
+
+<!-- Popup Ad -->
+<div id="popupAd">
+  <div class="ad-box">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <!-- Popup Ad Code -->
+    <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
   </div>
+</div>
 
-  <script>
-    function getQueryParam(name) {
-      let urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(name);
-    }
+<script>
+  // Parameter link set
+  const urlParams = new URLSearchParams(window.location.search);
+  const mainLink = urlParams.get("link") || "https://example.com/video";
 
-    let target = getQueryParam("link");
-    if (target) {
-      setTimeout(() => {
-        window.location.href = target;
-      }, 3000); // 3 sec delay
-    } else {
-      document.body.innerHTML = "<h1>❌ কোনো লিংক পাওয়া যায়নি</h1>";
-    }
-  </script>
+  document.getElementById("mainBtn").href = mainLink;
+  document.getElementById("mainBtn2").href = mainLink;
+
+  function closePopup(){
+    document.getElementById("popupAd").style.display = "none";
+  }
+
+  // Auto close popup after 3 sec if user doesn't click X
+  setTimeout(() => {
+    document.getElementById("popupAd").style.display = "none";
+  }, 3000);
+</script>
+
 </body>
 </html>
