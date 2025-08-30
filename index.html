@@ -3,107 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>বাংলাদেশ ভাইরাল ভিডিও 🎬</title>
+  <title>Special Video</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
       text-align: center;
+      background: #f9f9f9;
     }
-    .container {
-      background: #fff;
+    header {
+      background: #222;
+      color: #fff;
       padding: 15px;
-      margin: 10px auto;
-      border-radius: 12px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
-      max-width: 420px;
-    }
-    h1 {
-      font-size: 26px;
-      font-weight: bold;
-      color: #222;
-      margin-bottom: 12px;
-    }
-    p {
       font-size: 20px;
-      font-weight: bold;
-      color: #444;
-      margin-bottom: 15px;
+    }
+    .content {
+      padding: 20px;
     }
     .btn {
       display: inline-block;
       margin: 10px;
-      padding: 14px 26px;
-      border-radius: 8px;
-      text-decoration: none;
+      padding: 12px 20px;
       font-size: 18px;
-      font-weight: bold;
-      color: white;
+      color: #fff;
+      background: #28a745;
+      border-radius: 6px;
+      text-decoration: none;
     }
-    .watch { background: #28a745; }
-    .download { background: #007bff; }
-    .ads { margin: 8px 0; }
-
-    /* Overlay Ad */
-    #overlay {
+    .btn.download {
+      background: #007bff;
+    }
+    /* Overlay ad */
+    #overlayAd {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0,0,0,0.85);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      display: none;
     }
-    #overlay .ad-box {
+    #overlayBox {
       background: #fff;
-      padding: 15px;
+      padding: 20px;
       border-radius: 10px;
+      max-width: 350px;
       text-align: center;
-      max-width: 300px;
       position: relative;
     }
-    #overlay .close-btn {
+    #overlayBox h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    #closeBtn {
       position: absolute;
-      top: 5px;
-      right: 8px;
-      background: #d9534f;
+      top: 8px;
+      right: 10px;
+      background: red;
       color: #fff;
       border: none;
       border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      font-size: 16px;
+      width: 25px;
+      height: 25px;
       cursor: pointer;
+      font-weight: bold;
+    }
+    .ads {
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- Overlay Ad -->
-  <div id="overlay">
-    <div class="ad-box">
-      <button class="close-btn" onclick="closeAd()">×</button>
-      <p><b>🔔 বিজ্ঞাপন</b></p>
-      <!-- Popunder -->
-      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-    </div>
+  <header>আজকের Special Video 🎬</header>
+
+  <!-- Top Banner Ad 728x90 -->
+  <div class="ads">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'e6b4c96a155e86ef29b10e59db3df9f6',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/e6b4c96a155e86ef29b10e59db3df9f6/invoke.js"></script>
   </div>
 
-  <div class="container">
-    <h1>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h1>
-    <p>ভিডিও দেখতে <b>Watch</b> অথবা <b>Download</b> বাটনে ক্লিক করুন 👇</p>
-
-    <!-- Native Banner -->
+  <div class="content">
+    <!-- Native Ad -->
     <div class="ads">
       <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
       <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
     </div>
 
-    <!-- Watch & Download Button -->
-    <div>
+    <p>ভিডিও দেখতে নিচে Watch বা Download বাটনে ক্লিক করুন 👇</p>
+
+    <!-- Watch / Download Buttons -->
+    <a id="watchBtn" class="btn">▶ Watch</a>
+    <a id="downloadBtn" class="btn download">⬇ Download</a>
+
+    <!-- 468x60 Banner -->
+    <div class="ads">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '207fe9af5a86e9e68987b4811edc0f41',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
+    </div>
+
+    <!-- 300x250 Banner -->
+    <div class="ads">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '78a344192e9027f8779eaba7f09813dd',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/78a344192e9027f8779eaba7f09813dd/invoke.js"></script>
+    </div>
+  </div>
+
+  <!-- Popunder -->
+  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
+
+  <!-- Social Bar -->
+  <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+
+  <!-- Overlay Ad -->
+  <div id="overlayAd">
+    <div id="overlayBox">
+      <button id="closeBtn" onclick="closeOverlay()">×</button>
+      <h2>Special Offer 🔥</h2>
+      <p>চালিয়ে যেতে বিজ্ঞাপনটি দেখুন</p>
+    </div>
+  </div>
+
+  <script>
+    // param video link
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoLink = urlParams.get("video");
+
+    // watch/download বাটন
+    document.getElementById("watchBtn").onclick = function() {
+      if (videoLink) {
+        window.location.href = videoLink;
+      } else {
+        alert("কোনো ভিডিও লিংক পাওয়া যায়নি!");
+      }
+    };
+    document.getElementById("downloadBtn").onclick = function() {
+      if (videoLink) {
+        window.location.href = videoLink;
+      } else {
+        alert("কোনো ভিডিও লিংক পাওয়া যায়নি!");
+      }
+    };
+
+    // overlay close করলে Smartlink redirect
+    function closeOverlay() {
+      document.getElementById("overlayAd").style.display = "none";
+      window.location.href = "https://pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js";
+    }
+  </script>
+
+</body>
+</html>    <div>
       <a href="#" onclick="openAd('https://otieu.com/4/9797408')" class="btn watch">▶ Watch</a>
       <a href="#" onclick="openAd('https://otieu.com/4/9797408')" class="btn download">⬇ Download</a>
     </div>
