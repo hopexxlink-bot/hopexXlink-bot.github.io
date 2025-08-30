@@ -5,80 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</title>
   <style>
-    body {font-family: Arial, sans-serif; text-align:center; margin:0; padding:0; background:#fff;}
-    header {background:#007bff; color:#fff; padding:15px;}
-    header h1 {margin:0; font-size:22px;}
-    p {font-size:18px; padding:15px;}
-    .btn {display:inline-block; width:40%; margin:10px; padding:15px; font-size:18px; font-weight:bold; color:white; border-radius:8px; text-decoration:none;}
-    .watch {background:#28a745;}
-    .download {background:#0066ff;}
-    footer {background:#222; color:#fff; padding:12px; margin-top:20px; font-size:14px;}
-
-    /* Popup Box */
-    #adBox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;}
-    #adContent {background:#fff; padding:20px; border-radius:12px; width:90%; max-width:350px; text-align:center;}
-    #adContent h2 {font-size:20px; margin-bottom:10px;}
-    #closeAd {background:red; color:white; border:none; padding:8px 12px; cursor:pointer; border-radius:6px; margin-top:15px;}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      text-align: center;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+    }
+    .watch { background: #28a745; }
+    .download { background: #007bff; }
+    footer {
+      background: #333;
+      color: white;
+      padding: 12px;
+      font-size: 14px;
+    }
+    /* Ad Box */
+    #adBox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .ad-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      color: red;
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h1>
-  </header>
+<header>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</header>
 
+<div class="content">
   <p>আমাদের ওয়েবসাইটে প্রতিদিন নতুন ভাইরাল ভিডিও যুক্ত করা হয়। ভিডিও দেখতে নিচের Watch অথবা Download বাটনে ক্লিক করুন 👇</p>
+  
+  <h3>🎬 আজকের স্পেশাল ভিডিও 🎬</h3>
+  
+  <a href="#" class="btn watch" onclick="openAd(event, 'watch')">▶ Watch</a>
+  <a href="#" class="btn download" onclick="openAd(event, 'download')">⬇ Download</a>
+</div>
 
-  <h2>🎬 আজকের স্পেশাল ভিডিও 🎬</h2>
-  <a href="#" class="btn watch" onclick="openAd(event)">▶ Watch</a>
-  <a href="#" class="btn download" onclick="openAd(event)">⬇ Download</a>
+<footer>
+  © 2025 Viral Video BD | সব ভিডিও এখানেই দেখুন 🚀
+</footer>
 
-  <!-- Popup Ad Box -->
-  <div id="adBox">
-    <div id="adContent">
-      <h2>Advertisement</h2>
-
-      <!-- Social Bar Ad -->
-      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-
-      <!-- Native Banner Ad -->
-      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-
-      <button id="closeAd" onclick="closeAd()">✖ Close</button>
-    </div>
+<!-- Ad Box -->
+<div id="adBox">
+  <div class="ad-content">
+    <span class="close-btn" onclick="closeAd()">×</span>
+    <h3>👉 Sponsored Ad 👈</h3>
+    <p>এখানে আপনার বিজ্ঞাপন থাকবে</p>
   </div>
-
-  <footer>
-    © 2025 Viral Video BD | সব ভিডিও এখানেই দেখুন 🚀
-  </footer>
-
-  <!-- Popunder Ad -->
-  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
+</div>
 
 <script>
-  // URL parameter থেকে link নেওয়া
+  // Parameter পড়া
   function getParam(name) {
     let url = new URL(window.location.href);
     return url.searchParams.get(name);
   }
 
-  let finalLink = getParam("link") || "https://example.com"; // default link
+  let watchLink = getParam("watch") || "https://example.com/watch";
+  let downloadLink = getParam("download") || "https://example.com/download";
 
   let adClosed = false;
+  let targetLink = "";
 
-  function openAd(e){
+  function openAd(e, type){
     e.preventDefault();
     if(!adClosed){
       document.getElementById("adBox").style.display = "flex";
+      targetLink = (type === 'watch') ? watchLink : downloadLink;
     } else {
-      window.location.href = finalLink;
+      window.location.href = targetLink;
     }
   }
 
   function closeAd(){
     document.getElementById("adBox").style.display = "none";
     adClosed = true;
+    window.location.href = targetLink;
   }
 </script>
 
