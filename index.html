@@ -1,79 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Video</title>
+  <title>বাংলাদেশ ভাইরাল ভিডিও 🎥</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; background: #f8f8f8; }
-    h2 { margin-top: 20px; }
-    .btn { display: inline-block; margin: 12px; padding: 14px 24px; background: #2196f3; color: #fff; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: bold; }
-    .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center; }
-    .overlay-content { background: #fff; padding: 20px; border-radius: 12px; text-align: center; width: 90%; max-width: 350px; position: relative; }
-    .close-btn { position: absolute; top: 8px; right: 10px; cursor: pointer; font-size: 20px; color: red; }
-    .banner { margin: 20px auto; text-align: center; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; text-align: center; }
+    .container { max-width: 500px; margin: auto; padding: 15px; }
+    h1 { color: #000; font-size: 20px; margin: 15px 0; }
+    .btn { display: block; width: 100%; margin: 10px 0; padding: 12px; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; }
+    .watch { background: green; color: #fff; }
+    .download { background: blue; color: #fff; }
+    /* popup */
+    .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+    .popup-content { background: #fff; padding: 20px; border-radius: 10px; width: 90%; max-width: 350px; position: relative; }
+    .close { position: absolute; top: 5px; right: 10px; font-size: 22px; cursor: pointer; color: red; }
   </style>
 </head>
 <body>
 
-  <h2>আজকের Special Video 🎬</h2>
+<div class="container">
+  <h1>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h1>
+  <p>ভিডিও দেখতে নিচের Watch অথবা Download বাটনে ক্লিক করুন 👇</p>
+  
+  <button class="btn watch" onclick="openAd('https://example.com/video')">▶ Watch</button>
+  <button class="btn download" onclick="openAd('https://example.com/video')">⬇ Download</button>
+</div>
 
-  <!-- Overlay Ad -->
-  <div class="overlay" id="adOverlay">
-    <div class="overlay-content">
-      <span class="close-btn" onclick="closeAd()">×</span>
-      <h3>Sponsored Ad 🔥</h3>
-      <!-- Overlay ad script -->
-      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-    </div>
+<!-- Popup Ad -->
+<div id="adPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeAd()">×</span>
+    <h3>Sponsored Ad</h3>
+    <!-- social bar -->
+    <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+    <!-- native banner -->
+    <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+    <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
   </div>
+</div>
 
-  <!-- Main Buttons -->
-  <a href="#" class="btn" onclick="openAd()">▶ Watch</a>
-  <a href="#" class="btn" onclick="openAd()">⬇ Download</a>
+<script>
+  let targetLink = "";
 
-  <!-- Banner Ad (bottom) -->
-  <div class="banner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '78a344192e9027f8779eaba7f09813dd',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/78a344192e9027f8779eaba7f09813dd/invoke.js"></script>
-  </div>
+  function openAd(link){
+    targetLink = link;
+    document.getElementById("adPopup").style.display = "flex";
+  }
 
-  <script>
-    // Get URL parameter ?video=...
-    function getParameter(name) {
-      let url = new URL(window.location.href);
-      return url.searchParams.get(name);
-    }
-
-    let finalLink = getParameter("video"); // আসল TeraBox লিংক
-
-    // Open Overlay Ad
-    function openAd() {
-      document.getElementById("adOverlay").style.display = "flex";
-
-      // Popunder ad
-      window.open("//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287", "_blank");
-    }
-
-    // Close Ad & Redirect
-    function closeAd() {
-      document.getElementById("adOverlay").style.display = "none";
-      if(finalLink) {
-        window.location.href = finalLink; // Redirect to real link
-      } else {
-        alert("কোনো ভিডিও লিংক পাওয়া যায়নি!");
-      }
-    }
-  </script>
+  function closeAd(){
+    document.getElementById("adPopup").style.display = "none";
+    window.location.href = targetLink; // redirect after close
+  }
+</script>
 
 </body>
 </html>
