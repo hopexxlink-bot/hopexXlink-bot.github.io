@@ -1,181 +1,90 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Video</title>
+  <title>Video Redirect</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
       text-align: center;
-      background: #f9f9f9;
     }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 15px;
-      font-size: 20px;
-    }
-    .content {
-      padding: 20px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      font-size: 18px;
-      color: #fff;
-      background: #28a745;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .btn.download {
-      background: #007bff;
-    }
-    /* Overlay ad */
-    #overlayAd {
+    .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.8);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       z-index: 9999;
+      flex-direction: column;
     }
-    #overlayBox {
+    .ad-box {
       background: #fff;
-      padding: 20px;
+      padding: 10px;
       border-radius: 10px;
-      max-width: 350px;
+      max-width: 320px;
+      width: 90%;
       text-align: center;
       position: relative;
     }
-    #overlayBox h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-    #closeBtn {
+    .close-btn {
       position: absolute;
-      top: 8px;
+      top: 5px;
       right: 10px;
-      background: red;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+    .buttons {
+      margin-top: 50px;
+    }
+    .btn {
+      display: block;
+      margin: 15px auto;
+      padding: 15px 20px;
+      font-size: 18px;
+      font-weight: bold;
       color: #fff;
       border: none;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 300px;
       cursor: pointer;
-      font-weight: bold;
     }
-    .ads {
-      margin: 20px auto;
-    }
+    .watch { background: #007bff; }
+    .download { background: #28a745; }
   </style>
 </head>
 <body>
 
-  <header>আজকের Special Video 🎬</header>
-
-  <!-- Top Banner Ad 728x90 -->
-  <div class="ads">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'e6b4c96a155e86ef29b10e59db3df9f6',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/e6b4c96a155e86ef29b10e59db3df9f6/invoke.js"></script>
-  </div>
-
-  <div class="content">
-    <!-- Native Ad -->
-    <div class="ads">
+  <!-- Overlay Ad -->
+  <div class="overlay" id="adOverlay">
+    <div class="ad-box">
+      <span class="close-btn" onclick="closeAd()">×</span>
+      <!-- এখানে তোমার ad network script বসাও -->
       <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
       <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
     </div>
-
-    <p>ভিডিও দেখতে নিচে Watch বা Download বাটনে ক্লিক করুন 👇</p>
-
-    <!-- Watch / Download Buttons -->
-    <a id="watchBtn" class="btn">▶ Watch</a>
-    <a id="downloadBtn" class="btn download">⬇ Download</a>
-
-    <!-- 468x60 Banner -->
-    <div class="ads">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '207fe9af5a86e9e68987b4811edc0f41',
-          'format' : 'iframe',
-          'height' : 60,
-          'width' : 468,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/207fe9af5a86e9e68987b4811edc0f41/invoke.js"></script>
-    </div>
-
-    <!-- 300x250 Banner -->
-    <div class="ads">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '78a344192e9027f8779eaba7f09813dd',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//www.highperformanceformat.com/78a344192e9027f8779eaba7f09813dd/invoke.js"></script>
-    </div>
   </div>
 
-  <!-- Popunder -->
-  <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-
-  <!-- Social Bar -->
-  <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-
-  <!-- Overlay Ad -->
-  <div id="overlayAd">
-    <div id="overlayBox">
-      <button id="closeBtn" onclick="closeOverlay()">×</button>
-      <h2>Special Offer 🔥</h2>
-      <p>চালিয়ে যেতে বিজ্ঞাপনটি দেখুন</p>
-    </div>
+  <!-- Main Buttons -->
+  <div class="buttons">
+    <button class="btn watch" onclick="goLink()">▶ Watch</button>
+    <button class="btn download" onclick="goLink()">⬇ Download</button>
   </div>
 
   <script>
-    // param video link
-    const urlParams = new URLSearchParams(window.location.search);
-    const videoLink = urlParams.get("video");
-
-    // watch/download বাটন
-    document.getElementById("watchBtn").onclick = function() {
-      if (videoLink) {
-        window.location.href = videoLink;
-      } else {
-        alert("কোনো ভিডিও লিংক পাওয়া যায়নি!");
-      }
-    };
-    document.getElementById("downloadBtn").onclick = function() {
-      if (videoLink) {
-        window.location.href = videoLink;
-      } else {
-        alert("কোনো ভিডিও লিংক পাওয়া যায়নি!");
-      }
-    };
-
-    // overlay শুধু বন্ধ হবে
-    function closeOverlay() {
-      document.getElementById("overlayAd").style.display = "none";
+    function closeAd() {
+      document.getElementById('adOverlay').style.display = 'none';
+    }
+    function goLink() {
+      window.location.href = "https://www.terabox.com/s/XXXXXXXX"; // এখানে তোমার TERABOX লিংক দাও
     }
   </script>
 
