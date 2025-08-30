@@ -55,6 +55,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      display: none;
     }
     #overlay .ad-box {
       background: #fff;
@@ -86,16 +87,16 @@
     <div class="ad-box">
       <button class="close-btn" onclick="closeAd()">×</button>
       <p><b>🔔 বিজ্ঞাপন</b></p>
-      <!-- 🔹 Popunder Ad -->
+      <!-- Popunder -->
       <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
     </div>
   </div>
 
   <div class="container">
     <h1>🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥</h1>
-    <p>ভিডিও দেখতে <b>Watch</b> অথবা ডাউনলোড করতে <b>Download</b> বাটনে ক্লিক করুন 👇</p>
+    <p>ভিডিও দেখতে <b>Watch</b> অথবা <b>Download</b> বাটনে ক্লিক করুন 👇</p>
 
-    <!-- 🔹 Native Banner -->
+    <!-- Native Banner -->
     <div class="ads">
       <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
       <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
@@ -103,15 +104,14 @@
 
     <!-- Watch & Download Button -->
     <div>
-      <a href="https://otieu.com/4/9797408" class="btn watch">▶ Watch</a>
-      <a href="https://otieu.com/4/9797408" class="btn download">⬇ Download</a>
+      <a href="#" onclick="openAd('https://otieu.com/4/9797408')" class="btn watch">▶ Watch</a>
+      <a href="#" onclick="openAd('https://otieu.com/4/9797408')" class="btn download">⬇ Download</a>
     </div>
 
-    <!-- 🔹 Social Bar -->
+    <!-- Social Bar -->
     <div class="ads">
       <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
     </div>
-
   </div>
 
   <footer style="background:#333;color:#fff;padding:12px;margin-top:15px;font-size:16px;">
@@ -119,13 +119,18 @@
   </footer>
 
   <script>
-    // 3 Second Overlay Ad
-    setTimeout(() => {
-      document.getElementById("overlay").style.display = "none";
-    }, 3000);
+    let finalUrl = "";
+
+    function openAd(url) {
+      finalUrl = url;
+      document.getElementById("overlay").style.display = "flex";
+    }
 
     function closeAd() {
       document.getElementById("overlay").style.display = "none";
+      if (finalUrl) {
+        window.location.href = finalUrl;
+      }
     }
   </script>
 
