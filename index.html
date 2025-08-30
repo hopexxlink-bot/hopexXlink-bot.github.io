@@ -5,70 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeraBox Link</title>
   <style>
-    body { font-family: Arial, sans-serif; background:#f4f4f9; margin:0; padding:0; text-align:center; }
-    header { background:#4e73df; color:#fff; padding:15px; font-size:22px; font-weight:bold; }
-    .btn { display:inline-block; margin:15px; padding:15px 25px; font-size:20px; font-weight:bold;
-           color:#fff; background:#28a745; border-radius:8px; text-decoration:none; }
-    .btn.download { background:#007bff; }
-    .ads { margin:15px auto; }
-    #popupAd { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8);
-               display:flex; justify-content:center; align-items:center; z-index:9999; }
-    #popupAd .adBox { background:#fff; padding:20px; max-width:90%; position:relative; border-radius:10px; }
-    #popupAd .closeBtn { position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer; color:red; }
-    .hidden { display:none; }
+    body { font-family: Arial, sans-serif; text-align: center; background: #f7f7f7; margin:0; padding:0; }
+    .container { margin: 20px auto; max-width: 500px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+    h2 { color: #333; font-size: 22px; font-weight: bold; }
+    .btn { display: inline-block; margin: 10px; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+    .watch { background: green; color: white; }
+    .download { background: blue; color: white; }
+    .ad-box { margin: 15px 0; padding: 10px; background: #f1f1f1; border: 1px dashed #aaa; border-radius: 8px;}
+    /* popup ad */
+    #popupAd {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;
+    }
+    #popupAd .ad-content {
+      background: white; padding: 20px; border-radius: 10px; position: relative; max-width: 350px;
+    }
+    #popupAd .close { position: absolute; top: 5px; right: 10px; cursor: pointer; font-weight: bold; font-size:18px; }
   </style>
 </head>
 <body>
 
-  <header>🎬 আপনার TeraBox লিঙ্ক প্রস্তুত</header>
+  <div class="container">
+    <h2>🎬 আপনার TeraBox লিংক প্রস্তুত</h2>
 
-  <!-- Popup Ad -->
-  <div id="popupAd">
-    <div class="adBox">
-      <span class="closeBtn">×</span>
-      <h3>Advertisement</h3>
-      <!-- এখানে Popup Ad Code বসান -->
+    <!-- 🔹 Social Bar Ad -->
+    <div class="ad-box">
       <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
     </div>
-  </div>
 
-  <main id="mainContent" class="hidden">
-    <p style="font-size:20px; font-weight:bold; margin-top:20px;">👉 নিচে আপনার ডাউনলোড লিঙ্ক পাবেন</p>
-
-    <!-- Watch & Download Buttons -->
-    <a id="watchBtn" class="btn">▶ Watch</a>
-    <a id="downloadBtn" class="btn download">⬇ Download</a>
-
-    <!-- Native Banner Ad -->
-    <div class="ads">
+    <!-- 🔹 Native Banner Ad -->
+    <div class="ad-box">
       <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
       <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
     </div>
 
-    <!-- Social Bar Ad -->
-    <div class="ads">
-      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+    <!-- Watch / Download Buttons -->
+    <a id="watchBtn" href="#" class="btn watch">▶ Watch</a>
+    <a id="downloadBtn" href="#" class="btn download">⬇ Download</a>
+
+    <!-- 🔹 Footer Ad -->
+    <div class="ad-box">
+      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
     </div>
-  </main>
+  </div>
+
+  <!-- 🔹 Popup Ad -->
+  <div id="popupAd">
+    <div class="ad-content">
+      <span class="close" onclick="closeAd()">✖</span>
+      <h3>Advertisement</h3>
+      <p>👇 এখানে Popup Ad আসবে 👇</p>
+      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
+    </div>
+  </div>
 
   <script>
-    // Popup close
-    document.querySelector(".closeBtn").addEventListener("click", function() {
-      document.getElementById("popupAd").classList.add("hidden");
-      document.getElementById("mainContent").classList.remove("hidden");
-    });
+    // Popup auto show
+    window.onload = function(){
+      setTimeout(function(){
+        document.getElementById("popupAd").style.display = "flex";
+      }, 1000); // ১ সেকেন্ড পরে popup আসবে
+    };
 
-    // Get ?link= parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const link = urlParams.get("link");
-
-    if(link){
-      document.getElementById("watchBtn").href = link;
-      document.getElementById("downloadBtn").href = link;
-    } else {
-      document.getElementById("watchBtn").href = "#";
-      document.getElementById("downloadBtn").href = "#";
+    // Close popup
+    function closeAd(){
+      document.getElementById("popupAd").style.display = "none";
     }
+
+    // Button click → link এ যাবে
+    const urlParams = new URLSearchParams(window.location.search);
+    const link = urlParams.get('link');
+
+    document.getElementById("watchBtn").addEventListener("click", function(){
+      if(link){ window.location.href = link; }
+    });
+    document.getElementById("downloadBtn").addEventListener("click", function(){
+      if(link){ window.location.href = link; }
+    });
   </script>
 
 </body>
