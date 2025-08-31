@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch / Download</title>
   <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      text-align: center; 
-      padding: 30px; 
-    }
+    body {font-family: Arial, sans-serif; text-align: center; padding: 30px;}
     .btn {
       display: inline-block;
       padding: 15px 25px;
@@ -20,16 +16,20 @@
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
+      margin-top: 20px;
     }
-    .btn:hover { background: #0056b3; }
+    .btn:hover {background: #0056b3;}
   </style>
 </head>
 <body>
-  <h2>ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
+  <h2>🎬 ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
   <a id="watchBtn" class="btn">▶ Watch / Download</a>
 
+  <!-- RevenueCPMGate Popup Ad -->
+  <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
+
   <script>
-    // URL থেকে parameter নিয়ে আসা
+    // URL থেকে parameter পড়া
     function getParameterByName(name) {
       const url = window.location.href;
       name = name.replace(/[\[\]]/g, "\\$&");
@@ -40,15 +40,21 @@
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    // লিঙ্ক সেট করা
     const link = getParameterByName("link");
     const btn = document.getElementById("watchBtn");
 
     if(link){
-      // encode automatically
       const finalLink = encodeURI(link);
-      btn.href = finalLink;
-      btn.setAttribute("target", "_blank");
+
+      // বাটনে ক্লিক করলে প্রথমে popup ad show হবে
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+
+        // ২ সেকেন্ড ad এর সময় ধরে, তারপর redirect করবে
+        setTimeout(function(){
+          window.location.href = finalLink;
+        }, 2000);
+      });
     } else {
       btn.innerText = "❌ কোনো লিঙ্ক পাওয়া যায়নি";
       btn.style.background = "gray";
