@@ -8,71 +8,48 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: #f8f8f8;
+      background: #fff;
       margin: 0;
       padding: 0;
     }
-    header, footer {
-      background: #fff;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .container {
-      margin-top: 20px;
-      padding: 10px;
-    }
-    h2 {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #222;
+    .header-ad, .footer-ad {
+      margin: 10px 0;
     }
     .btn {
       display: inline-block;
-      padding: 15px 40px;
+      background: #007bff;
+      color: #fff;
+      padding: 15px 25px;
       font-size: 20px;
       font-weight: bold;
-      color: white;
-      background: #007bff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 20px 0;
     }
     .btn:hover {
       background: #0056b3;
     }
-    .ads {
-      margin: 20px 0;
-    }
   </style>
 </head>
 <body>
-  <!-- Header Ad -->
-  <header>
-    <div class="ads">
-      <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
-    </div>
-  </header>
 
-  <div class="container">
-    <h2>📥 ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
-    <button class="btn" onclick="openLink()">▶ Watch / Download</button>
-
-    <!-- Middle Native Banner -->
-    <div class="ads">
-      <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
-      <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
-    </div>
+  <!-- Header Banner Ad -->
+  <div class="header-ad">
+    <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
   </div>
 
-  <!-- Footer Ad -->
-  <footer>
-    <div class="ads">
-      <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-    </div>
-  </footer>
+  <h2>ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
+
+  <!-- Watch / Download Button -->
+  <a href="javascript:void(0)" class="btn" onclick="openLink()">▶ Watch / Download</a>
+
+  <!-- Footer Banner Ad -->
+  <div class="footer-ad">
+    <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
+  </div>
+
+  <!-- Popup/Popunder Ad -->
+  <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
 
   <script>
     // Get terabox link from parameter
@@ -85,24 +62,30 @@
         return;
       }
 
-      // প্রথমবার ad দেখাবে তারপর redirect
-      if (!localStorage.getItem("adShown")) {
-        localStorage.setItem("adShown", "true");
+      // First click show ad → next time direct
+      if (!sessionStorage.getItem("adShown")) {
+        sessionStorage.setItem("adShown", "true");
 
+        // Open popup ad
+        window.open("//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js", "_blank");
+
+        // After 2 sec redirect
         setTimeout(() => {
           window.location.href = targetLink;
-        }, 1500);
+        }, 2000);
+
       } else {
-        // পরেরবার সরাসরি redirect
+        // Direct terabox link next times
         window.location.href = targetLink;
       }
     }
 
-    // Back দিলে পেজ কাটবে না
+    // Prevent going back to ad again
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
       history.go(1);
     };
   </script>
+
 </body>
 </html>
