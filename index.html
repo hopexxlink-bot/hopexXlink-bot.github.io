@@ -5,87 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch / Download</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .header-ad, .footer-ad {
-      margin: 10px 0;
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      padding: 30px; 
     }
     .btn {
       display: inline-block;
+      padding: 15px 25px;
+      font-size: 18px;
       background: #007bff;
       color: #fff;
-      padding: 15px 25px;
-      font-size: 20px;
-      font-weight: bold;
+      border: none;
       border-radius: 8px;
+      cursor: pointer;
       text-decoration: none;
-      margin: 20px 0;
     }
-    .btn:hover {
-      background: #0056b3;
-    }
+    .btn:hover { background: #0056b3; }
   </style>
 </head>
 <body>
-
-  <!-- Header Banner Ad -->
-  <div class="header-ad">
-    <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
-  </div>
-
   <h2>ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
-
-  <!-- Watch / Download Button -->
-  <a href="javascript:void(0)" class="btn" onclick="openLink()">▶ Watch / Download</a>
-
-  <!-- Footer Banner Ad -->
-  <div class="footer-ad">
-    <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
-  </div>
-
-  <!-- Popup/Popunder Ad -->
-  <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
+  <a id="watchBtn" class="btn">▶ Watch / Download</a>
 
   <script>
-    // Get terabox link from parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const targetLink = urlParams.get("link");
-
-    function openLink() {
-      if (!targetLink) {
-        alert("❌ কোনো লিঙ্ক পাওয়া যায়নি!");
-        return;
-      }
-
-      // First click show ad → next time direct
-      if (!sessionStorage.getItem("adShown")) {
-        sessionStorage.setItem("adShown", "true");
-
-        // Open popup ad
-        window.open("//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js", "_blank");
-
-        // After 2 sec redirect
-        setTimeout(() => {
-          window.location.href = targetLink;
-        }, 2000);
-
-      } else {
-        // Direct terabox link next times
-        window.location.href = targetLink;
-      }
+    // URL থেকে parameter নিয়ে আসা
+    function getParameterByName(name) {
+      const url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    // Prevent going back to ad again
-    history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-      history.go(1);
-    };
-  </script>
+    // লিঙ্ক সেট করা
+    const link = getParameterByName("link");
+    const btn = document.getElementById("watchBtn");
 
+    if(link){
+      // encode automatically
+      const finalLink = encodeURI(link);
+      btn.href = finalLink;
+      btn.setAttribute("target", "_blank");
+    } else {
+      btn.innerText = "❌ কোনো লিঙ্ক পাওয়া যায়নি";
+      btn.style.background = "gray";
+      btn.removeAttribute("href");
+    }
+  </script>
 </body>
 </html>
