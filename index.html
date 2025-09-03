@@ -2,95 +2,24 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch / Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-      background: #f9f9f9;
-    }
-    h2 {color: #333;}
-    .btn {
-      display: inline-block;
-      padding: 15px 25px;
-      font-size: 18px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 25px;
-      transition: 0.3s;
-    }
-    .btn:hover {background: #0056b3;}
-    .note {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-    .banner {
-      margin: 20px auto;
-      max-width: 320px;
-    }
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    .btn { display: inline-block; margin: 10px; padding: 15px 25px; font-size: 18px; color: #fff; border-radius: 8px; text-decoration: none; }
+    .watch { background: #28a745; }
+    .download { background: #007bff; }
+    .ad { margin: 20px 0; }
   </style>
 </head>
 <body>
-  <h2>🎬 ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
-  <div class="banner">
-    <!-- Banner Ad -->
-    <script async="async" data-cfasync="false" src="//pl27536061.revenuecpmgate.com/c6a2c22d0d7f9f4e4ce6e6f3e22c79d6/invoke.js"></script>
-    <div id="container-c6a2c22d0d7f9f4e4ce6e6f3e22c79d6"></div>
+  <h2>ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
+
+  <!-- ✅ Ad Script 1 -->
+  <div class="ad">
+    <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
   </div>
 
-  <a id="watchBtn" class="btn">▶ Watch / Download</a>
-  <p class="note">👉 প্রথমে একটি বিজ্ঞাপন খুলবে, তারপর ভিডিও লিঙ্ক ওপেন হবে।</p>
-
-  <!-- Popup Ad -->
-  <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
-
-  <script>
-    // URL থেকে parameter পড়া
-    function getParameterByName(name) {
-      const url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    const link = getParameterByName("link");
-    const btn = document.getElementById("watchBtn");
-
-    if(link){
-      const finalLink = encodeURI(link);
-
-      btn.addEventListener("click", function(e){
-        e.preventDefault();
-
-        // Ad popup trigger
-        window.open("about:blank", "_blank");
-
-        // 2 সেকেন্ড delay পরে redirect করবে
-        setTimeout(function(){
-          window.location.href = finalLink;
-        }, 2000);
-      });
-    } else {
-      btn.innerText = "❌ কোনো লিঙ্ক পাওয়া যায়নি";
-      btn.style.background = "gray";
-      btn.removeAttribute("href");
-    }
-
-    // Back দিলে সাইট কেটে না গিয়ে main পেইজেই থাকবে
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function () {
-      window.history.pushState(null, null, window.location.href);
-    };
-  </script>
-</body>
-</html>
+  <!-- ✅ Watch / Download Button -->
+  <a id="watchBtn" class="btn watch" href="#">▶ Watch</a>
+  <
