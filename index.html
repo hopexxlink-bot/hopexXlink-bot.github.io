@@ -2,24 +2,121 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <title>Watch / Download</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বাংলাদেশ ভাইরাল ভিডিও 🎬</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-    .btn { display: inline-block; margin: 10px; padding: 15px 25px; font-size: 18px; color: #fff; border-radius: 8px; text-decoration: none; }
-    .watch { background: #28a745; }
-    .download { background: #007bff; }
-    .ad { margin: 20px 0; }
+    body {font-family: Arial, sans-serif; background:#f9f9f9; text-align:center; margin:0; padding:0;}
+    header {background:#0077ff; color:white; padding:20px; font-size:28px; font-weight:bold;}
+    .btn {display:inline-block; margin:15px; padding:16px 30px; border-radius:10px; text-decoration:none; font-size:22px; font-weight:bold;}
+    .watch {background:#28a745; color:white;}
+    .download {background:#007bff; color:white;}
+    footer {background:#333;color:#fff;padding:18px;margin-top:25px;font-size:18px;}
+    .ads {margin:20px 0;}
+
+    /* Popup Box */
+    #popupAd {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -20%);
+      width: 90%;
+      max-width: 350px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      padding: 15px;
+      text-align: center;
+      display: none;
+    }
+    #popupAd button {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      background: red;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h2>ভিডিও দেখতে বা ডাউনলোড করতে নিচে ক্লিক করুন</h2>
 
-  <!-- ✅ Ad Script 1 -->
-  <div class="ad">
-    <script type='text/javascript' src='//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js'></script>
-  </div>
+<header>
+  🔥 বাংলাদেশের সব ভাইরাল ভিডিও 🔥
+  <!-- Social Bar Ad -->
+  <script type='text/javascript' src='//pl27537579.revenuecpmgate.com/3b/de/d9/3bded9960e673cf5ff005b9477eac109.js'></script>
+</header>
 
-  <!-- ✅ Watch / Download Button -->
-  <a id="watchBtn" class="btn watch" href="#">▶ Watch</a>
-  <
+<!-- Popup Ad (শুধু প্রথমবার) -->
+<div id="popupAd">
+  <button onclick="closePopup()">×</button>
+  <h3>📢 Sponsor Ad</h3>
+  <script type="text/javascript" src="//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js"></script>
+</div>
+
+<p style="font-size:24px; margin:25px; font-weight:bold; color:#222;">
+👉 বাংলাদেশের সব ভাইরাল ভিডিও সবচেয়ে আগে পেতে আমাদের সাইট ভিজিট করুন।  
+<br> ভিডিও দেখতে <span style="color:green;">Watch</span> অথবা ডাউনলোড করতে <span style="color:blue;">Download</span> বাটনে ক্লিক করুন 👇
+</p>
+
+<h2 style="font-size:22px; margin-top:20px;">🎬 আজকের ভিডিও</h2>
+<img src="https://via.placeholder.com/350x200?text=ভিডিও+Thumbnail" alt="Video" style="width:90%;max-width:350px;border-radius:10px;">
+
+<div>
+  <a href="#" onclick="goLink()" class="btn watch">▶ Watch</a>
+  <a href="#" onclick="goLink()" class="btn download">⬇ Download</a>
+</div>
+
+<!-- Native Banner Ad -->
+<div class="ads">
+  <script async="async" data-cfasync="false" src="//pl27537573.revenuecpmgate.com/b2e37bf6dda12eac58459584e8e5f287/invoke.js"></script>
+  <div id="container-b2e37bf6dda12eac58459584e8e5f287"></div>
+</div>
+
+<footer>
+  © 2025 Viral Video BD | সব ভিডিও প্রথমে এখানেই দেখুন 🚀
+</footer>
+
+<script>
+  // URL থেকে link parameter নেয়ার ফাংশন
+  function getParam(name){
+    let url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  let link = getParam("link") || "https://1024terabox.com/s/xxxx"; // Default link
+  let firstClick = true;
+
+  function goLink(){
+    if(firstClick){
+      firstClick = false;
+      // Popunder Ad load
+      let ad = document.createElement("script");
+      ad.type = "text/javascript";
+      ad.src = "//pl27536061.revenuecpmgate.com/19/48/e0/1948e0d3362f2c250b63a2360e2202bf.js";
+      document.body.appendChild(ad);
+
+      setTimeout(()=>{ window.location.href = link; }, 1500);
+    } else {
+      window.location.href = link;
+    }
+  }
+
+  // Popup Ad শুধু প্রথমবার show হবে
+  if(!localStorage.getItem("popupShown")){
+    setTimeout(()=>{ 
+      document.getElementById("popupAd").style.display="block"; 
+      localStorage.setItem("popupShown","yes");
+    }, 2000);
+  }
+
+  function closePopup(){ document.getElementById("popupAd").style.display="none"; }
+</script>
+
+</body>
+</html>
